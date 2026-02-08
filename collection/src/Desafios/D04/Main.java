@@ -12,15 +12,21 @@ public class Main {
 
         ArrayList<ContaBancaria> listCont = new ArrayList<>();
 
-        listCont.add(cont);
+
+        listCont.add(null);
         listCont.add(cont2);
         listCont.add(cont3);
 
-        double maiorSaldo = listCont.get(0).getSaldo();
+        //Modificação para evitar NullPointerException
+        double maiorSaldo = 0;
 
         for (ContaBancaria item : listCont) {
-            if (item.getSaldo() > maiorSaldo) {
-                maiorSaldo = item.getSaldo();
+            if(item != null){
+                if (item.getSaldo() > maiorSaldo) {
+                    maiorSaldo = item.getSaldo();
+                }
+            }else{
+                System.out.println("Item da lista vazio");
             }
         }
 
