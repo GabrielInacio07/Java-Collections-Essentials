@@ -1,6 +1,7 @@
 package Desafios.D04;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Main {
 
@@ -14,19 +15,19 @@ public class Main {
 
 
         listCont.add(null);
-        listCont.add(cont2);
+        listCont.add(null);
         listCont.add(cont3);
 
         //Modificação para evitar NullPointerException
         double maiorSaldo = 0;
+        int posicao = 0;
 
         for (ContaBancaria item : listCont) {
-            if(item != null){
-                if (item.getSaldo() > maiorSaldo) {
-                    maiorSaldo = item.getSaldo();
-                }
-            }else{
-                System.out.println("Item da lista vazio");
+            if(item != null && item.getSaldo() > maiorSaldo){
+                maiorSaldo = item.getSaldo();
+            }else if (Objects.isNull(item)){
+                posicao++;
+                System.out.println(posicao + "º Item da lista vazio");
             }
         }
 
