@@ -14,9 +14,9 @@ public class Main {
         ArrayList<ContaBancaria> listCont = new ArrayList<>();
 
 
+        listCont.add(cont);
         listCont.add(null);
         listCont.add(null);
-        listCont.add(cont3);
 
         //Modificação para evitar NullPointerException ;D
         double maiorSaldo = 0;
@@ -24,6 +24,7 @@ public class Main {
 
         for (ContaBancaria item : listCont) {
             if(item != null && item.getSaldo() > maiorSaldo){
+                posicao++;
                 maiorSaldo = item.getSaldo();
             }else if (Objects.isNull(item)){
                 posicao++;
